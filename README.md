@@ -16,7 +16,7 @@ Replace %SYSTEM_USER% with your System user and %SKYPE_USER% with your Skype use
 ### convo_id:
 The conversation you want to track. You can find it on the Conversations table (of the Skype db).
 
-## tumbrl:
+## tumblr:
 You can get your Tumblr tokens here: 
 [https://api.tumblr.com/console](https://api.tumblr.com/console)
 
