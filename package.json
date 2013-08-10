@@ -1,6 +1,18 @@
 {
+  "name": "old",
+  "version": "0.0.1",
+  "description": "Skype url fetcher",
+  "license": "MIT",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
   "dependencies": {
     "sqlite3": "*",
     "tumblrwks": "*"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.2.x"
   }
 }
