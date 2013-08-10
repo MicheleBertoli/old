@@ -4,8 +4,8 @@ var Tumblr = require("tumblrwks");
 var config = require("./config.js");
 
 config.file = "message.lid";
-var dbFile = "/Library/Application Support/Skype/%user%/main.db";
 
+var dbFile = "/Library/Application Support/Skype/%user%/main.db";
 config.skype.db = dbFile.replace("%user%", config.skype.userName);
 console.log("opening db file: ", process.env.HOME + config.skype.db);
 var db = new sqlite3.Database(process.env.HOME + config.skype.db);

@@ -24,6 +24,7 @@ You can get your Tumblr tokens here:
 # How to use it
 
 `node app` or `npm start`.
+
 This script does not contains any running loop, therefore you need to run it once every while (that's why it needs the message.lid trace file).
 
 # LICENSE - "MIT License"
