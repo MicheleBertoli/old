@@ -7,14 +7,12 @@ config.file = "message.lid";
 var dbFile = "/Library/Application Support/Skype/%user%/main.db";
 
 config.skype.db = dbFile.replace("%user%", config.skype.userName);
-
-console.log("opening DB file: ", process.env.HOME+config.skype.db);
-
+console.log("opening db file: ", process.env.HOME + config.skype.db);
 var db = new sqlite3.Database(process.env.HOME + config.skype.db);
+
 var sql = {
 	id: "SELECT id FROM Messages WHERE convo_id = " + config.skype.convo_id + " ORDER BY id DESC LIMIT 0,1",
-	messages: "SELECT body_xml FROM Messages WHERE convo_id = " + config.skype.convo_id + " AND id > ",
-	lastMessageID: "select id from Messages order by id desc limit 1"
+	messages: "SELECT body_xml FROM Messages WHERE convo_id = " + config.skype.convo_id + " AND id > "
 };
 
 var regex = {
@@ -29,11 +27,9 @@ function checkLidFile(callback) {
 		if (exists) {
 			collectUrls();
 		} else {
-			db.each(sql.lastMessageID, function(err, result) {
+			db.each(sql.id, function(err, result) {
 				if (err) return;
-
 				fs.writeFile(config.file, result);
-
 				collectUrls();
 			});
 		}
@@ -56,12 +52,12 @@ function collectUrls() {
 				console.log("hashtags", hashtags);
 				console.log("link", link[1]);
 				tumblr.post("/post", {
-				type: "link",
-				tags: hashtags.join(","),
-				url: link[1]
-			}, function(post) {
-				console.log("post", post);
-			});
+					type: "link",
+					tags: hashtags.join(","),
+					url: link[1]
+				}, function(post) {
+					console.log("post", post);
+				});
 			}
 		});
 	});

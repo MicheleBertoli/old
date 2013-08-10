@@ -1,7 +1,7 @@
 {
   "name": "old",
   "version": "0.0.1",
-  "description": "Skype url fetcher",
+  "description": "From #Skype to #Tumblr",
   "license": "MIT",
   "main": "app.js",
   "scripts": {

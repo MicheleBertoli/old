@@ -1,8 +1,8 @@
 var config = {
 
 	skype: {
-		userName: '',
-		convo_id: 235
+		userName: "",
+		convo_id: 0
 	},
 
 	tumblr: {
