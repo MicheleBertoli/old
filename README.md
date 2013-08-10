@@ -4,22 +4,24 @@ In [Gummy Industries](http://gummyindustries.com), we have a [Skype](http://skyp
 
 Thanks to this tool, we are able to post them (if they have hashtags) automatically to [Tumblr](http://tumblr.com) (see [http://ooold.tumblr.com](http://ooold.tumblr.com))
 
+# message.lid:
+You can create a "message.lid" file in the app root folder containing the message di you want to start from, this file can be found in the Messages table (in the Skype db).
+If not created the .lid file will be automatically created using the last available message id.
+
 # Configuration (config.js)
 
-## file:
-You must fill a text file with the last Skype message id.
-You can find it on the Messages table (of the Skype db).
-
 ## skype:
-### db:
-Replace %SYSTEM_USER% with your System user and %SKYPE_USER% with your Skype user.
+### userName:
+Your skype user name.
 ### convo_id:
-The conversation you want to track. You can find it on the Conversations table (of the Skype db).
+The conversation id you want to track. You can find it on the Conversations table (in the Skype db).
 
 ## tumblr:
 You can get your Tumblr tokens here: 
 [https://api.tumblr.com/console](https://api.tumblr.com/console)
 
-# How to use
+# How to use it
 
-`node app`
+`node app` or `npm start`.
+
+This script does not contains any running loop, therefore you need to run it once every while (that's why it needs the message.lid trace file)
