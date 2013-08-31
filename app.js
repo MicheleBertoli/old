@@ -28,7 +28,10 @@ function checkLidFile(callback) {
 			collectUrls();
 		} else {
 			db.each(sql.id, function(err, result) {
-				if (err) return;
+				if (err) {
+					console.log(err);
+					return;
+				};
 				fs.writeFile(config.file, result);
 				collectUrls();
 			});
@@ -38,14 +41,27 @@ function checkLidFile(callback) {
 
 function collectUrls() {
 	fs.readFile(config.file, "utf8", function(err, data) {
-		if (err) return;
+		if (err) {
+			console.log(err);
+			return;
+		};
 		db.get(sql.id, function(err, row) {
-			if (err) return;
+			if (err) {
+				console.log(err);
+				return;
+			};
 			fs.writeFile(config.file, row.id);
 		});
 		sql.messages += data;
 		db.each(sql.messages, function(err, row) {
-			if (err) return;
+			if (err) {
+				console.log(err);
+				return;
+			};
+			if (!row.body_xml) {
+				console.log("row.body_xml is null", row);
+				return;
+			};
 			var hashtags = row.body_xml.match(regex.hashtag);
 			var link = row.body_xml.match(regex.link);
 			if (hashtags && link) {
