@@ -2,7 +2,7 @@
 
 In [Gummy Industries](http://gummyindustries.com), we have a [Skype](http://skype.com) chat where we share many links.
 
-Thanks to this tool, we are able to post them (if they have hashtags) automatically to [Tumblr](http://tumblr.com) (see [http://ooold.tumblr.com](http://ooold.tumblr.com))
+Thanks to this tool, we are able to post them (if they have hashtags) automatically to [Tumblr](http://tumblr.com) (see [http://ooold.tumblr.com](http://ooold.tumblr.com)).
 
 # message.lid:
 
@@ -15,7 +15,7 @@ If not exists, the .lid file will be automatically created using the last availa
 ### userName:
 Your Skype user name.
 ### convo_id:
-The conversation id you want to track. You can find it on the Conversations table (in the Skype db).
+The conversation id you want to track. You can find it on the Conversations table (in the Skype db: /Library/Application Support/Skype/%userName%/main.db).
 
 ## tumblr:
 You can get your Tumblr tokens here: 
