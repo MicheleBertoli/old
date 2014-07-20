@@ -12,7 +12,7 @@ var db = new sqlite3.Database(process.env.HOME + config.skype.db);
 
 var sql = {
 	id: "SELECT id FROM Messages WHERE convo_id = " + config.skype.convo_id + " ORDER BY id DESC LIMIT 0,1",
-	messages: "SELECT body_xml FROM Messages WHERE convo_id = " + config.skype.convo_id + " AND id > "
+	messages: "SELECT from_dispname, body_xml FROM Messages WHERE convo_id = " + config.skype.convo_id + " AND id > "
 };
 
 var regex = {
@@ -70,7 +70,8 @@ function collectUrls() {
 				tumblr.post("/post", {
 					type: "link",
 					tags: hashtags.join(","),
-					url: link[1]
+					url: link[1],
+					description: "Posted by " + row.from_dispname
 				}, function(post) {
 					console.log("post", post);
 				});
